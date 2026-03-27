@@ -10,7 +10,7 @@ const WishList = ({ wish = [] }) => {
         </div>
         
         {wish.length === 0 ? (
-            <div className={styles.empty}>Your wishlist is currently empty. Add products from the Inventory!</div>
+            <div className={styles.empty}>Empty Wishlist</div>
         ) : (
             <div className={styles.list}>
                 {wish.map((product, index) => (
