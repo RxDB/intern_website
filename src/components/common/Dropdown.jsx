@@ -8,6 +8,9 @@ const Dropdown = ({
 }) => {
     return (
         <div className={styles.dropdown}>
+            <label htmlFor={name} className={styles.label}>
+                {name}
+            </label>
             <select
                 name={name}
                 id={name}
