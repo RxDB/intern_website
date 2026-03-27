@@ -44,7 +44,7 @@ const ProductForm = ({ products, setProducts }) => {
 
     return (
         <div className={styles.formContainer}>
-            <h2 className={styles.title}>Add Products...</h2>
+            <h2 className={styles.title}>Add New Product</h2>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.fullWidth}>
                     <TextInput
@@ -53,7 +53,7 @@ const ProductForm = ({ products, setProducts }) => {
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="Enter Product Name"
+                        placeholder="eg: Fitbit X"
                     />
                 </div>
                 <Dropdown
