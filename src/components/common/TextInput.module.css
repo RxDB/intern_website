@@ -1,0 +1,33 @@
+.inputfield {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: capitalize;
+  align-self: flex-start;
+  margin-left: 5%;
+}
+
+.input {
+  width: 90%;
+  box-sizing: border-box;
+  padding: 0.3rem 0.3rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  background-color: rgb(223 227 229);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(168, 19, 24, 0.1);
+  background-color: white;
+}

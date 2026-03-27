@@ -1,0 +1,22 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: hsl(220, 27%, 98%);
+  color: #111827;
+}
+
+.contentContainer {
+  display: flex;
+  flex: 1;
+  gap:2rem;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+  gap: 2rem;
+}
