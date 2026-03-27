@@ -41,7 +41,13 @@ const ProductTable = ({ products = [], addWishlist }) => {
                         <tr key={index}>
                             <td>{product.name}</td>
                             <td>{product.stock}</td>
-                            <td>{product.price}</td>
+                            <td
+                                style={{
+                                    color:product.price < 100 ? 'green' : 
+                                    100<product.price<300 ? 'yellow' : 
+                                    301<product.price<500 ? 'orange' : 'red'
+                                }}
+                            >{product.price}</td>
                             <td>{product.category}</td>
                             <td>{product.region}</td>
                             <td>{product.customizable ? 'Yes' : 'No'}</td>
