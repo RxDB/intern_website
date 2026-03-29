@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TextInput from './common/TextInput';
+import TextInput from '../common/TextInput/TextInput';
 import styles from './ProductTable.module.css';
 
 const ProductTable = ({ products = [], addWishlist }) => {

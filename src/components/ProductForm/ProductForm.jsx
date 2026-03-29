@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import TextInput from './common/TextInput'
-import Radio from './common/Radio'
-import Checkbox from './common/Checkbox'
-import Dropdown from './common/Dropdown'
-import Button from './common/Button'
+import TextInput from '../common/TextInput/TextInput'
+import Radio from '../common/Radio/Radio'
+import Checkbox from '../common/Checkbox/Checkbox'
+import Dropdown from '../common/Dropdown/Dropdown'
+import Button from '../common/Button/Button'
 import styles from './ProductForm.module.css'
 
 
@@ -24,9 +24,21 @@ const ProductForm = ({ products, setProducts }) => {
         region: '',
         customizable: false,
         returnable: false,
+        image: '',
     }
 
     const [form, setForm] = useState(initial)
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0]
+        if (file) {
+            const reader = new FileReader()
+            reader.onloadend = () => {
+                setForm(prev => ({ ...prev, image: reader.result }))
+            }
+            reader.readAsDataURL(file)
+        }
+    }
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target
@@ -85,7 +97,7 @@ const ProductForm = ({ products, setProducts }) => {
                     name="stock"
                     value={form.stock}
                     onChange={handleChange}
-                    placeholder="Enter Stock"
+                    placeholder="0"
                 />
                 <TextInput
                     type="number"
@@ -93,7 +105,7 @@ const ProductForm = ({ products, setProducts }) => {
                     name="price"
                     value={form.price}
                     onChange={handleChange}
-                    placeholder="Enter Price"
+                    placeholder="0"
                 />
                 <div className={styles.fullWidth}>
                     <TextInput
@@ -103,7 +115,28 @@ const ProductForm = ({ products, setProducts }) => {
                         value={form.description}
                         onChange={handleChange}
                         placeholder="Enter Description"
+                        multiline
                     />
+                </div>
+                <div className={styles.fullWidth}>
+                    <label className={styles.imageLabel}>
+                        Product Image
+                    </label>
+                    <div className={styles.fileInputContainer}>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className={styles.fileInput}
+                        />
+                        {form.image ? (
+                            <div className={styles.imagePreviewContainer}>
+                                <img src={form.image} alt="Preview" className={styles.imagePreview} />
+                            </div>
+                        ) : (
+                            <div className={styles.uploadText}>Click to Upload Image</div>
+                        )}
+                    </div>
                 </div>
                 <Radio
                     name="sellType"

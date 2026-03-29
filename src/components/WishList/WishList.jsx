@@ -1,4 +1,4 @@
-import ProductCard from "./common/ProductCard"
+import ProductCard from "../common/ProductCard/ProductCard"
 import styles from "./WishList.module.css"
 
 const WishList = ({ wish = [] }) => {

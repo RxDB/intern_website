@@ -7,19 +7,32 @@ const InputField =({
     placeholder,
     value,
     onChange,
+    multiline,
 })=>{
     return(
         <div className={styles.inputfield}>
             <label htmlFor={name} className={styles.label}>{label}</label>
-            <input
-                type={type}
-                name={name}
-                id={name}
-                value={value}
-                onChange={onChange}
-                placeholder={placeholder}
-                className={styles.input}
-            />
+            {multiline ? (
+                <textarea
+                    name={name}
+                    id={name}
+                    value={value}
+                    onChange={onChange}
+                    placeholder={placeholder}
+                    className={`${styles.input} ${styles.textarea}`}
+                    rows={4}
+                />
+            ) : (
+                <input
+                    type={type}
+                    name={name}
+                    id={name}
+                    value={value}
+                    onChange={onChange}
+                    placeholder={placeholder}
+                    className={styles.input}
+                />
+            )}
         </div>
     )
 }

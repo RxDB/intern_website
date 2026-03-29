@@ -1,11 +1,11 @@
 import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import ProductForm from './components/ProductForm'
-import Navbar from './components/Navbar'
-import Sidebar from './components/Sidebar'
-import Summary from './components/Summary'
-import ProductTable from './components/ProductTable'
-import WishList from './components/WishList'
+import ProductForm from './components/ProductForm/ProductForm'
+import Navbar from './components/Navbar/Navbar'
+import Sidebar from './components/Sidebar/Sidebar'
+import Summary from './components/Summary/Summary'
+import ProductTable from './components/ProductTable/ProductTable'
+import WishList from './components/WishList/WishList'
 
 import styles from './main.module.css'
 
@@ -33,7 +33,11 @@ const App = () => {
   );
 };
 
-createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root')
+if (!window.__reactRoot) {
+  window.__reactRoot = createRoot(container)
+}
+window.__reactRoot.render(
   <StrictMode>
     <App />
   </StrictMode>,

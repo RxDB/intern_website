@@ -12,13 +12,13 @@
   color: #374151;
   text-transform: capitalize;
   align-self: flex-start;
-  margin-left: 5%;
+  margin-left: 5px;
 }
 
 .input {
   width: 90%;
   box-sizing: border-box;
-  padding: 0.3rem 0.3rem;
+  padding: 0.3rem;
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   font-size: 0.875rem;
@@ -30,4 +30,10 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(168, 19, 24, 0.1);
   background-color: white;
+}
+
+.textarea {
+  resize: vertical;
+  font-family: inherit;
+  min-height: 80px;
 }

@@ -1,4 +1,4 @@
-import styles from './Radio.module.css'
+import styles from '../Radio/Radio.module.css'
 
 const Checkbox = ({
     name,

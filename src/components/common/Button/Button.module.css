@@ -2,11 +2,11 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0.4rem 1rem;
+  padding: 1.5rem 1rem;
   border: none;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  border-radius: 0.8em;
+  font-size: 1.1rem;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -18,7 +18,7 @@
 }
 
 .primary:hover {
-  background-color: #2563eb;
+  background-color: #1d4ed8;
 }
 
 .primary:active {
