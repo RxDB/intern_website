@@ -2,6 +2,20 @@ import { useState } from 'react';
 import TextInput from '../common/TextInput/TextInput';
 import styles from './ProductTable.module.css';
 
+const getStockInfo = (stock) => {
+    if (stock === 0) return { label: 'Out of stock', color: '#dc2626', fontSize: '0.8rem' };
+    if (stock < 10) return { label: 'Low stock', color: '#ea580c', fontSize: '0.825rem' };
+    if (stock < 50) return { label: 'Medium stock', color: '#ca8a04', fontSize: '0.85rem' };
+    return { label: 'High stock', color: '#16a34a', fontSize: '0.875rem' };
+};
+
+const getPriceStyle = (price) => {
+    if (price < 100) return { color: 'green', fontSize: '0.95rem', fontWeight: 600 };
+    if (price <= 300) return { color: 'goldenrod', fontSize: '0.9rem', fontWeight: 600 };
+    if (price <= 500) return { color: 'orange', fontSize: '0.875rem', fontWeight: 600 };
+    return { color: 'red', fontSize: '0.85rem', fontWeight: 700 };
+};
+
 const ProductTable = ({ products = [], addWishlist }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -37,28 +51,43 @@ const ProductTable = ({ products = [], addWishlist }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredProducts.map((product, index) => (
-                        <tr key={index}>
-                            <td>{product.name}</td>
-                            <td>{product.stock}</td>
-                            <td
-                                style={{
-                                    color:product.price < 100 ? 'green' : 
-                                    100<product.price<300 ? 'yellow' : 
-                                    301<product.price<500 ? 'orange' : 'red'
-                                }}
-                            >{product.price}</td>
-                            <td>{product.category}</td>
-                            <td>{product.region}</td>
-                            <td>{product.customizable ? 'Yes' : 'No'}</td>
-                            <td>
-                                <button
-                                    className={styles.actionButton}
-                                    onClick={()=>addWishlist(product)}
-                                >Add</button>
-                            </td>
-                        </tr>
-                    ))}
+                    {filteredProducts.map((product, index) => {
+                        const stockInfo = getStockInfo(product.stock);
+                        const priceStyle = getPriceStyle(product.price);
+                        return (
+                            <tr key={index}>
+                                <td>
+                                    <div className={styles.productCell}>
+                                        {product.image ? (
+                                            <img
+                                                src={product.image}
+                                                alt={product.name}
+                                                className={styles.productThumb}
+                                            />
+                                        ) : (
+                                            <div className={styles.productThumbPlaceholder}>📦</div>
+                                        )}
+                                        <span>{product.name}</span>
+                                    </div>
+                                </td>
+                                <td style={{ color: stockInfo.color, fontSize: stockInfo.fontSize, fontWeight: 600 }}>
+                                    {stockInfo.label}
+                                </td>
+                                <td style={priceStyle}>
+                                    ${product.price}
+                                </td>
+                                <td>{product.category}</td>
+                                <td>{product.region}</td>
+                                <td>{product.customizable ? 'Yes' : 'No'}</td>
+                                <td>
+                                    <button
+                                        className={styles.actionButton}
+                                        onClick={()=>addWishlist(product)}
+                                    >Add</button>
+                                </td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>

@@ -16,7 +16,10 @@ const App = () => {
   const addWishlist = (product) => {
     setWishlist([...wishlist, product]);
   };
-
+  
+  const handleDelete = (name)=>{
+    setWishlist(wishlist.filter(item=>item.name !== name))
+  }
   return (
     <div className={styles.appContainer}>
       <Navbar />
@@ -25,7 +28,7 @@ const App = () => {
         <ProductForm setProducts={setProducts} products={products} />
         <div className={styles.mainContent}>
           <Summary products={products} />
-          <WishList wish={wishlist} />
+          <WishList wish={wishlist} handleDelete={handleDelete} />
           <ProductTable products={products} addWishlist={addWishlist} />
         </div>
       </div>

@@ -18,16 +18,19 @@ const ProductForm = ({ products, setProducts }) => {
         stock: '',
         price: '',
         description: '',
-        category: '',
+        category: 'Electronic',
         currency: '',
         sellType: '',
-        region: '',
+        region: 'India',
         customizable: false,
         returnable: false,
         image: '',
     }
 
     const [form, setForm] = useState(initial)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
     const handleImageChange = (e) => {
         const file = e.target.files[0]
@@ -48,10 +51,13 @@ const ProductForm = ({ products, setProducts }) => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true)
+        await delay(1000)
         addProduct(form)
         setForm(initial)
+        setIsLoading(false)
     }
 
     return (
@@ -165,8 +171,9 @@ const ProductForm = ({ products, setProducts }) => {
                 <div className={styles.buttonGroup}>
                     <Button
                         type='submit'
-                        label="Add Product"
+                        label={isLoading ? "Adding..." : "Add Product"}
                         onClick={handleSubmit}
+                        disabled={isLoading}
                     />
                     <Button
                         type='button'

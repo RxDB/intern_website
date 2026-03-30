@@ -1,7 +1,10 @@
 import ProductCard from "../common/ProductCard/ProductCard"
 import styles from "./WishList.module.css"
 
-const WishList = ({ wish = [] }) => {
+
+const WishList = ({ wish = [], handleDelete }) => {
+
+    
     return(
       <div className={styles.container}>
         <div className={styles.header}>
@@ -14,7 +17,7 @@ const WishList = ({ wish = [] }) => {
         ) : (
             <div className={styles.list}>
                 {wish.map((product, index) => (
-                    <ProductCard key={index} {...product} />
+                    <ProductCard key={index} {...product} onRemove={handleDelete} />
                 ))}
             </div>
         )}

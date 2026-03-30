@@ -1,7 +1,7 @@
 .card {
   background: white;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@
 
 .price {
   font-weight: 700;
-  color: #2563eb;
+  color: #bd1a2d;
   font-size: 1.125rem;
 }
 
@@ -68,4 +68,25 @@
 .highStock {
   background-color: #d1fae5;
   color: #04784e;
+}
+
+.wishlistImage{
+  height: 100%;
+  width: 100%;
+}
+
+.wishlistImage img{
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.stockContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteIcon{
+  cursor:pointer;
 }

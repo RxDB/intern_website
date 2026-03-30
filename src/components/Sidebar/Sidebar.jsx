@@ -1,4 +1,8 @@
 import styles from './Sidebar.module.css'
+import windowIcon from '../../icons/window-apps-16.png'
+import boxIcon from '../../icons/box-3-16.png'
+import heartIcon from '../../icons/heart-69-16.png'
+import analyticsIcon from '../../icons/analytics-16.png'
 
 const SidebarItem = ({icon,label})=>{
     return(
@@ -20,19 +24,19 @@ const Sidebar = ()=>{
             </div>
         <div className={styles.sidebar}>
            <SidebarItem
-            icon="./public/heart.png"
+            icon={windowIcon}
             label="DashBoard"
         />
           <SidebarItem
-            icon="./public/heart.png"
+            icon={boxIcon}
             label="Inventory" 
         />
           <SidebarItem
-            icon="./public/heart.png"
+            icon={heartIcon}
             label="WishList"
         />
           <SidebarItem
-            icon="./public/heart.png"
+            icon={analyticsIcon}
             label="Analytics"
         />
         </div>
