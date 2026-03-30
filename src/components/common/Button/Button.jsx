@@ -4,11 +4,13 @@ const Button = ({
     label,
     onClick,
     type,
+    disabled,
 })=>{
     return(
         <button 
             type={type} 
             onClick={onClick}
+            disabled={disabled}
             className={`${styles.button} ${type === 'submit' ? styles.primary : styles.secondary}`}
         >
             {label}
