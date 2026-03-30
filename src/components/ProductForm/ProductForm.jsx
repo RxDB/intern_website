@@ -20,7 +20,7 @@ const ProductForm = ({ products, setProducts }) => {
         description: '',
         category: 'Electronic',
         currency: '',
-        sellType: '',
+        sellType: 'customer',
         region: 'India',
         customizable: false,
         returnable: false,
@@ -148,12 +148,14 @@ const ProductForm = ({ products, setProducts }) => {
                     name="sellType"
                     label="customer"
                     value='customer'
+                    checked={form.sellType === 'customer'}
                     onChange={handleChange}
                 />
                 <Radio
                     name="sellType"
                     label="franchise"
                     value='franchise'
+                    checked={form.sellType === 'franchise'}
                     onChange={handleChange}
                 />
                 <Checkbox
