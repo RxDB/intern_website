@@ -11,7 +11,7 @@ import styles from './ProductForm.module.css'
 const ProductForm = ({ products, setProducts }) => {
 
     const addProduct = (newProduct) => {
-        setProducts([...products, newProduct])
+        setProducts((currentProducts) => [...currentProducts, newProduct])
     }
     const initial = {
         name: '',

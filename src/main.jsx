@@ -14,7 +14,7 @@ const App = () => {
   const [wishlist, setWishlist] = useState([]);
 
   const addWishlist = (product) => {
-    setWishlist([...wishlist, product]);
+    setWishlist((currentWishlist) => [...currentWishlist, product]);
   };
   
   const handleDelete = (name)=>{
