@@ -3,7 +3,7 @@ import TextInput from '../common/TextInput/TextInput';
 import styles from './ProductTable.module.css';
 
 const getStockInfo = (stock) => {
-    if (stock === 0) return { label: 'Out of stock', color: '#dc2626', fontSize: '0.8rem' };
+    if (stock == 0) return { label: 'Out of stock', color: '#dc2626', fontSize: '0.8rem' };
     if (stock < 10) return { label: 'Low stock', color: '#ea580c', fontSize: '0.825rem' };
     if (stock < 50) return { label: 'Medium stock', color: '#ca8a04', fontSize: '0.85rem' };
     return { label: 'High stock', color: '#16a34a', fontSize: '0.875rem' };
