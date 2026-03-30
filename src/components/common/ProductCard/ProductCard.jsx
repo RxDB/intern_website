@@ -32,7 +32,7 @@ const ProductCard = ({
 
                 <div className={styles.stockContainer}>
                 <span className={`${styles.stockBadge} ${stock <= 10 ? styles.lowStock : styles.highStock}`}>
-                    {stock <= 10 ? 'Low Stock' : 'High Stock'}
+                    {stock == 0 ? 'Out of stock' : stock < 10 ? 'Low stock' : 'High stock'}
                 </span>
                 <img
                     src={trashIcon}
