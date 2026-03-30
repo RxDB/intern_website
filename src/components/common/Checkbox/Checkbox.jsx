@@ -5,7 +5,7 @@ const Checkbox = ({
     label,
     value,
     onChange,
-
+    checked,
 })=>{
     return(
         <label className={styles.container}>
@@ -15,6 +15,7 @@ const Checkbox = ({
                 value={value}
                 onChange={onChange}
                 className={styles.input}
+                checked={checked}
             />
             <span className={styles.label}>{label}</span>
         </label>
