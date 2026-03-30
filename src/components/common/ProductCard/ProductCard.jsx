@@ -1,4 +1,5 @@
 import styles from './ProductCard.module.css'
+import trashIcon from '../../../icons/trash-2-16.png'
 
 const ProductCard = ({
     name,
@@ -34,7 +35,8 @@ const ProductCard = ({
                     {stock <= 10 ? 'Low Stock' : 'High Stock'}
                 </span>
                 <img
-                    src='src/icons/trash-2-16.png'
+                    src={trashIcon}
+                    alt="Remove from wishlist"
                     onClick={()=>onRemove(name)}
                     className={styles.deleteIcon}
                 />
