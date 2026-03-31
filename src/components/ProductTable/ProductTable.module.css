@@ -10,7 +10,8 @@
 .headerRow {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -20,9 +21,26 @@
   color: var(--content-black);
 }
 
+.controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .searchContainer {
   margin-bottom: 0;
   width: 300px;
+}
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filters > * {
+  width: 260px;
 }
 
 .table {
@@ -99,3 +117,4 @@
   font-size: 1rem;
   flex-shrink: 0;
 }
+

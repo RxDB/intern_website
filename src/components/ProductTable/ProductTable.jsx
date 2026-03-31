@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TextInput from '../common/TextInput/TextInput';
+import Dropdown from '../common/Dropdown/Dropdown';
 import styles from './ProductTable.module.css';
 
 const getStockInfo = (stock) => {
@@ -18,10 +19,42 @@ const getPriceStyle = (price) => {
 
 const ProductTable = ({ products = [], addWishlist }) => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedRegion, setSelectedRegion] = useState('all');
+    const [selectedCategory, setSelectedCategory] = useState('all');
 
-    const filteredProducts = products.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const regionList = products.map((product) => product.region);
+    const uniqueRegions = [...new Set(regionList)].filter(Boolean);
+    const regionOptions = [
+        { value: 'all', label: 'All Regions' },
+        ...uniqueRegions.map((region) => ({
+            value: region,
+            label: region,
+        })),
+    ];
+
+    const categoryList = products.map((product) => product.category);
+    const uniqueCategories = [...new Set(categoryList)].filter(Boolean);
+    const categoryOptions = [
+        { value: 'all', label: 'All Categories' },
+        ...uniqueCategories.map((category) => ({
+            value: category,
+            label: category,
+        })),
+    ];
+
+    const filteredProducts = products.filter((product) => {
+        const matchesSearch = product.name
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase());
+
+        const matchesRegion =
+            selectedRegion === 'all' || product.region === selectedRegion;
+            
+        const matchesCategory =
+            selectedCategory === 'all' || product.category === selectedCategory;
+
+        return matchesSearch && matchesRegion && matchesCategory;
+    });
 
     return (
         <div className={styles.container}>
@@ -29,13 +62,31 @@ const ProductTable = ({ products = [], addWishlist }) => {
                 <div className={styles.tabletext}>
                     Global Inventory
                 </div>
-                <div className={styles.searchContainer} >
-                    <TextInput
-                        type="text"
-                        placeholder="Search products by name..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
+                <div className={styles.controls}>
+                    <div className={styles.searchContainer} >
+                        <TextInput
+                            type="text"
+                            placeholder="Search products by name..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                    </div>
+                    <div className={styles.filters}>
+                        <Dropdown
+                            name="regionFilter"
+                            label="Region"
+                            value={selectedRegion}
+                            onChange={(e) => setSelectedRegion(e.target.value)}
+                            options={regionOptions}
+                        />
+                        <Dropdown
+                            name="categoryFilter"
+                            label="Category"
+                            value={selectedCategory}
+                            onChange={(e) => setSelectedCategory(e.target.value)}
+                            options={categoryOptions}
+                        />
+                    </div>
                 </div>
             </div>
             <table className={styles.table}>

@@ -2,6 +2,7 @@ import styles from './Dropdown.module.css'
 
 const Dropdown = ({
     name,
+    label,
     value,
     onChange,
     options = [],
@@ -9,7 +10,7 @@ const Dropdown = ({
     return (
         <div className={styles.dropdown}>
             <label htmlFor={name} className={styles.label}>
-                {name}
+                {label ?? name}
             </label>
             <select
                 name={name}

@@ -5,11 +5,14 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Summary from './components/Summary/Summary'
 import ProductTable from './components/ProductTable/ProductTable'
 import WishList from './components/WishList/WishList'
+import { dummyProducts, dummyWishlistIds } from './data/dummydata'
 import styles from './app.module.css'
 
 const App = () => {
-  const [products, setProducts] = useState([])
-  const [wishlist, setWishlist] = useState([])
+  const [products, setProducts] = useState(() => [...dummyProducts])
+  const [wishlist, setWishlist] = useState(() =>
+    dummyProducts.filter((product) => dummyWishlistIds.includes(product.id))
+  )
 
   const addWishlist = (product) => {
     setWishlist((currentWishlist) => {
