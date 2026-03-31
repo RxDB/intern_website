@@ -49,7 +49,7 @@ const ProductTable = ({ products = [], addWishlist }) => {
 
         const matchesRegion =
             selectedRegion === 'all' || product.region === selectedRegion;
-            
+
         const matchesCategory =
             selectedCategory === 'all' || product.category === selectedCategory;
 
@@ -116,9 +116,12 @@ const ProductTable = ({ products = [], addWishlist }) => {
                                                 className={styles.productThumb}
                                             />
                                         ) : (
-                                            <div className={styles.productThumbPlaceholder}>📦</div>
+                                            <div className={styles.productThumbPlaceholder}></div>
                                         )}
-                                        <span>{product.name}</span>
+                                        <div className={styles.productInfo}>
+                                            <span>{product.name}</span>
+                                            <span className={styles.categoryUnderProduct}>{product.category}</span>
+                                        </div>
                                     </div>
                                 </td>
                                 <td style={{ color: stockInfo.color, fontSize: stockInfo.fontSize, fontWeight: 600 }}>

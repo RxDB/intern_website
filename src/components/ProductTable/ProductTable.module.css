@@ -118,3 +118,15 @@
   flex-shrink: 0;
 }
 
+
+.productInfo{
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
+  color:var(--content-black)
+}
+.categoryUnderProduct{
+  font-size: 0.7rem;
+  color:var(--content-grey)
+  
+}
