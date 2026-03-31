@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import TextInput from '../common/TextInput/TextInput'
 import Radio from '../common/Radio/Radio'
 import Checkbox from '../common/Checkbox/Checkbox'
@@ -31,6 +31,7 @@ const ProductForm = ({ setProducts }) => {
 
     const [form, setForm] = useState(initial)
     const [isLoading, setIsLoading] = useState(false)
+    const fileInputRef = useRef(null)
 
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -43,6 +44,15 @@ const ProductForm = ({ setProducts }) => {
             }
             reader.readAsDataURL(file)
         }
+    }
+
+    const handleRemoveImage = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        if (fileInputRef.current) {
+            fileInputRef.current.value = ''
+        }
+        setForm((prev) => ({ ...prev, image: '' }))
     }
 
     const handleChange = (e) => {
@@ -141,9 +151,18 @@ const ProductForm = ({ setProducts }) => {
                             accept="image/*"
                             onChange={handleImageChange}
                             className={styles.fileInput}
+                            ref={fileInputRef}
                         />
                         {form.image ? (
                             <div className={styles.imagePreviewContainer}>
+                                <button
+                                    type="button"
+                                    className={styles.removePreviewButton}
+                                    onClick={handleRemoveImage}
+                                    aria-label="Remove preview image"
+                                >
+                                    ×
+                                </button>
                                 <img src={form.image} alt="Preview" className={styles.imagePreview} />
                             </div>
                         ) : (

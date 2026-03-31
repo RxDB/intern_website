@@ -76,12 +76,32 @@
     background: var(--input-dark);
 }
 
+.removePreviewButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 3;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--input-dark);
+    color: var(--content-black);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* .removePreviewButton:hover {
+    background: var(--content-grey);
+} */
+
 .fileInput {
     position: absolute;
     inset: 0;
     opacity: 0;
     cursor: pointer;
-    z-index: 2;
+    z-index: 1;
 }
 
 .imagePreview {
