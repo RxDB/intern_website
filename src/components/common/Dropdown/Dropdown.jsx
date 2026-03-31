@@ -6,18 +6,19 @@ const Dropdown = ({
     value,
     onChange,
     options = [],
+    selectClassName = '',
 }) => {
     return (
         <div className={styles.dropdown}>
             <label htmlFor={name} className={styles.label}>
-                {label ?? name}
+                {label }
             </label>
             <select
                 name={name}
                 id={name}
                 value={value}
                 onChange={onChange}
-                className={styles.select}
+                className={`${styles.select} ${selectClassName}`.trim()}
             >
                 {options.map((option) => (
                     <option key={option.value} value={option.value}>

@@ -43,6 +43,14 @@
   width: 260px;
 }
 
+.filterSelectPlaceholder {
+  font-weight: 600;
+}
+
+.filterSelectValue {
+  font-weight: 400;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;

@@ -29,7 +29,7 @@ const ProductTable = ({ products = [], wishlist = [], addWishlist,handleDelete }
     const regionList = products.map((product) => product.region);
     const uniqueRegions = [...new Set(regionList)].filter(Boolean);
     const regionOptions = [
-        { value: 'all', label: 'All Regions' },
+        { value: 'all', label: 'Regions' },
         ...uniqueRegions.map((region) => ({
             value: region,
             label: region,
@@ -39,7 +39,7 @@ const ProductTable = ({ products = [], wishlist = [], addWishlist,handleDelete }
     const categoryList = products.map((product) => product.category);
     const uniqueCategories = [...new Set(categoryList)].filter(Boolean);
     const categoryOptions = [
-        { value: 'all', label: 'All Categories' },
+        { value: 'all', label: 'Categories' },
         ...uniqueCategories.map((category) => ({
             value: category,
             label: category,
@@ -79,17 +79,25 @@ const ProductTable = ({ products = [], wishlist = [], addWishlist,handleDelete }
                     <div className={styles.filters}>
                         <Dropdown
                             name="regionFilter"
-                            label="Region"
                             value={selectedRegion}
                             onChange={(e) => setSelectedRegion(e.target.value)}
                             options={regionOptions}
+                            selectClassName={
+                                selectedRegion === 'all'
+                                    ? styles.filterSelectPlaceholder
+                                    : styles.filterSelectValue
+                            }
                         />
                         <Dropdown
                             name="categoryFilter"
-                            label="Category"
                             value={selectedCategory}
                             onChange={(e) => setSelectedCategory(e.target.value)}
                             options={categoryOptions}
+                            selectClassName={
+                                selectedCategory === 'all'
+                                    ? styles.filterSelectPlaceholder
+                                    : styles.filterSelectValue
+                            }
                         />
                     </div>
                 </div>
