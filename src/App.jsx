@@ -49,7 +49,12 @@ const App = () => {
             </div>
 
             <div className={styles.productTableArea}>
-            <ProductTable products={products} addWishlist={addWishlist} />
+            <ProductTable
+              products={products}
+              wishlist={wishlist}
+              addWishlist={addWishlist}
+              handleDelete={handleDelete}
+            />
             </div>
         </div>
       </div>

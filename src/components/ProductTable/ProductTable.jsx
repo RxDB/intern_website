@@ -2,6 +2,8 @@ import { useState } from 'react';
 import TextInput from '../common/TextInput/TextInput';
 import Dropdown from '../common/Dropdown/Dropdown';
 import searchIcon from '../../icons/search.svg';
+import greyHeartIcon from '../../icons/greyHeart.svg';
+import heartIcon from '../../icons/redHeart.svg';
 import styles from './ProductTable.module.css';
 
 const getStockInfo = (stock) => {
@@ -18,10 +20,11 @@ const getPriceStyle = (price) => {
     return { color: 'var(--content-red)'};
 };
 
-const ProductTable = ({ products = [], addWishlist }) => {
+const ProductTable = ({ products = [], wishlist = [], addWishlist,handleDelete }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedRegion, setSelectedRegion] = useState('all');
     const [selectedCategory, setSelectedCategory] = useState('all');
+    const wishlistIds = new Set(wishlist.map((item) => item.id));
 
     const regionList = products.map((product) => product.region);
     const uniqueRegions = [...new Set(regionList)].filter(Boolean);
@@ -107,6 +110,7 @@ const ProductTable = ({ products = [], addWishlist }) => {
                     {filteredProducts.map((product) => {
                         const stockInfo = getStockInfo(Number(product.stock) || 0);
                         const priceStyle = getPriceStyle(Number(product.price) || 0);
+                        const isWishlisted = wishlistIds.has(product.id);
                         return (
                             <tr key={product.id}>
                                 <td>
@@ -137,10 +141,12 @@ const ProductTable = ({ products = [], addWishlist }) => {
                                 <td>{product.region}</td>
                                 <td>{product.customizable ? 'Yes' : 'No'}</td>
                                 <td>
-                                    <button
+                                    <img
+                                        src={isWishlisted ? heartIcon : greyHeartIcon}
+                                        alt={isWishlisted ? 'Wishlisted' : 'Add to wishlist'}
                                         className={styles.actionButton}
-                                        onClick={()=>addWishlist(product)}
-                                    >Add</button>
+                                        onClick={()=> isWishlisted ? handleDelete(product.id) : addWishlist(product)}
+                                    />
                                 </td>
                             </tr>
                         );
