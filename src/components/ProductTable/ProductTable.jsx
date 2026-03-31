@@ -130,7 +130,8 @@ const ProductTable = ({ products = [], addWishlist }) => {
                                     {stockInfo.label}
                                 </td>
                                 <td style={priceStyle}>
-                                    ${product.price}
+                                    {product.currency==='USD' ? '$' : '₹'}
+                                    {product.price}
                                 </td>
                                 <td>{product.category}</td>
                                 <td>{product.region}</td>
