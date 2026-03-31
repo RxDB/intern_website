@@ -8,7 +8,9 @@ const WishList = ({ wish = [], handleDelete }) => {
     return(
       <div className={styles.container}>
         <div className={styles.header}>
-            <h2 className={styles.title}>Your Wishlist</h2>
+            <h2 className={styles.title}>
+                <img src='src/icons/redHeart.svg' alt="heart" />
+                Priority Wishlist</h2>
             <span className={styles.badge}>{wish.length} items</span>
         </div>
         
