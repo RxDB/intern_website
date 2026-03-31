@@ -8,10 +8,13 @@ const InputField =({
     value,
     onChange,
     multiline,
+    icon,
 })=>{
     return(
         <div className={styles.inputfield}>
-            <label htmlFor={name} className={styles.label}>{label}</label>
+            {label ? (
+                <label htmlFor={name} className={styles.label}>{label}</label>
+            ) : null}
             {multiline ? (
                 <textarea
                     name={name}
@@ -23,15 +26,20 @@ const InputField =({
                     rows={4}
                 />
             ) : (
-                <input
-                    type={type}
-                    name={name}
-                    id={name}
-                    value={value}
-                    onChange={onChange}
-                    placeholder={placeholder}
-                    className={styles.input}
-                />
+                <div className={styles.inputWrapper}>
+                    {icon ? (
+                        <span className={styles.icon} aria-hidden="true">{icon}</span>
+                    ) : null}
+                    <input
+                        type={type}
+                        name={name}
+                        id={name}
+                        value={value}
+                        onChange={onChange}
+                        placeholder={placeholder}
+                        className={`${styles.input} ${icon ? styles.inputWithIcon : ''}`}
+                    />
+                </div>
             )}
         </div>
     )

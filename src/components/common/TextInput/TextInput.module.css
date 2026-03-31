@@ -25,6 +25,34 @@
   background-color: var(--input-dark);
 }
 
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  color: var(--content-grey);
+  pointer-events: none;
+}
+
+.icon img,
+.icon svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.inputWithIcon {
+  padding-left: 2.5rem;
+}
+
 .input:focus {
   outline: none;
   border:var(--input-border);

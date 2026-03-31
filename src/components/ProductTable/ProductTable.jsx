@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TextInput from '../common/TextInput/TextInput';
 import Dropdown from '../common/Dropdown/Dropdown';
+import searchIcon from '../../icons/search.svg';
 import styles from './ProductTable.module.css';
 
 const getStockInfo = (stock) => {
@@ -69,6 +70,7 @@ const ProductTable = ({ products = [], addWishlist }) => {
                             placeholder="Search products by name..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
+                            icon={<img src={searchIcon} alt="" />}
                         />
                     </div>
                     <div className={styles.filters}>
