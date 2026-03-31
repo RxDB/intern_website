@@ -1,0 +1,43 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: hsl(220, 27%, 98%);
+  color: #111827;
+}
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: 300px minmax(0,1fr);
+  flex: 1;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 300px minmax(0,1fr);
+  gap: 2rem;
+  padding:2rem;
+
+  grid-template-areas: 
+  "summary summary"
+  "form wishlist"
+  "form table"
+  ;
+}
+
+.summaryArea{
+  grid-area: summary;
+}
+
+.formArea{
+  grid-area: form;
+}
+
+.wishlistArea{
+  grid-area: wishlist;
+}
+
+.productTableArea{
+  grid-area: table;
+}

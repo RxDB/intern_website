@@ -13,14 +13,14 @@ const Navbar = () => {
     return (
         <header className={styles.navbar}>
             <div className={styles.left}>
-                <div className={styles.logo}>ARCHITECTEDITOR</div>
+                <div className={styles.logo}>ARCHITECT EDITOR</div>
                 <div className={styles.time}>{time}</div>
             </div>
 
             <nav className={styles.navLinks}>
-                <a className={styles.link}>Login</a>
-                <a className={styles.link}>Find Us</a>
-                <a className={styles.dp}>DP</a>
+                <a href='#' className={styles.link}>Login</a>
+                <a href='#' className={styles.link}>Find Us</a>
+                <div className={styles.dp}>DP</div>
             </nav>
         </header>
     )

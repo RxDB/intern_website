@@ -16,8 +16,8 @@ const WishList = ({ wish = [], handleDelete }) => {
             <div className={styles.empty}>Empty Wishlist</div>
         ) : (
             <div className={styles.list}>
-                {wish.map((product, index) => (
-                    <ProductCard key={index} {...product} onRemove={handleDelete} />
+                {wish.map((product) => (
+                    <ProductCard key={product.id} {...product} onRemove={handleDelete} />
                 ))}
             </div>
         )}

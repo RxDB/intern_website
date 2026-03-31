@@ -16,13 +16,16 @@ const Summary = ({ products = [] }) => {
                     Inventory Control
                 </div>
             </div>
-            <div className={styles.card}>
-                <div className={styles.label}>Total Products</div>
-                <div className={styles.value}>{product}</div>
-            </div>
-            <div className={styles.card}>
+
+            <div className={styles.summaryCards}>
+                <div className={styles.card}>
+                    <div className={styles.label}>Total Products</div>
+                    <div className={styles.value}>{product}</div>
+                </div>
+                <div className={styles.card}>
                     <div className={styles.label}>Total Stock</div>
-                <div className={styles.value}>{stock}</div>
+                    <div className={styles.value}>{stock}</div>
+                </div>
             </div>
         </div>
     )

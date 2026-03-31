@@ -8,7 +8,7 @@ import styles from './ProductForm.module.css'
 
 
 
-const ProductForm = ({ products, setProducts }) => {
+const ProductForm = ({ setProducts }) => {
 
     const addProduct = (newProduct) => {
         setProducts((currentProducts) => [...currentProducts, newProduct])
@@ -25,6 +25,7 @@ const ProductForm = ({ products, setProducts }) => {
         customizable: false,
         returnable: false,
         image: '',
+        id: '',
     }
 
     const [form, setForm] = useState(initial)
@@ -55,7 +56,12 @@ const ProductForm = ({ products, setProducts }) => {
         e.preventDefault();
         setIsLoading(true)
         await delay(1000)
-        addProduct(form)
+
+        const productWithId={
+            ...form,
+            id:crypto.randomUUID(), 
+        }
+        addProduct(productWithId)
         setForm(initial)
         setIsLoading(false)
     }

@@ -8,27 +8,27 @@ const ProductCard = ({
     region,
     stock,
     image,
-    onRemove
+    onRemove,
+    id,
 }) => {
     return (
         <div className={styles.card}>
             <div className={styles.header}>
                 <div className={styles.wishlistImage}>
-                <img  src={image} alt={name} />
+                {image ? (
+                    <img src={image} alt={name} />
+                ) : (
+                    <div className={styles.stockBadge}>No image</div>
+                )}
                 </div>
             </div>
 
             <div className={styles.body}>
                 <div className={styles.detail}>
-                <h3 className={styles.name}>{name}</h3>
-                <span className={styles.price}>${price}</span>
-                    <span>Category:</span>
-                    <span>{category}</span>
+                    <h3 className={styles.name}>{name}</h3>
+                    <div className={styles.price}>${price}</div>
                 </div>
-                <div className={styles.detail}>
-                    <span>Region:</span>
-                    <span>{region}</span>
-                </div>
+                <div className={styles.category}>{category}</div>
 
                 <div className={styles.stockContainer}>
                 <span className={`${styles.stockBadge} ${stock <= 10 ? styles.lowStock : styles.highStock}`}>
@@ -37,7 +37,7 @@ const ProductCard = ({
                 <img
                     src={trashIcon}
                     alt="Remove from wishlist"
-                    onClick={()=>onRemove(name)}
+                    onClick={()=>onRemove(id)}
                     className={styles.deleteIcon}
                 />
                 </div>

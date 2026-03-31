@@ -1,43 +1,43 @@
-.sidebar {
-  width: 240px;
-  background-color: hsl(220, 27%, 98%);
-  border-right: 1px solid #e5e7eb;
-  padding: 1.5rem 0;
+.suite {
+  width: 300px;
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--input-border);
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--card-shadow);
 }
 
 .top{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem 0;
+  align-items: start;
+  justify-content: start;
+  padding-bottom: 1.5rem;
 }
 
 .logo{
-  color: #2563eb;
+  color: var(--content-blue);
   font-size: 1.2rem;
   font-weight: 600;
 }
 .logoText{
-  color: #4b5563;
+  color: var(--content-grey);
   font-size: 0.875rem;
 }
 .row {
   display: flex;
   align-items: center;
   padding: 0.875rem 1.5rem;
-  color: #4b5563;
+  color: var(--content-grey);
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: 800;
 }
 
 .row:hover {
-  background-color: #f3f4f6;
+  background-color: var(--content-white);
   padding-left: calc(1.5rem - 3px);
 }
 

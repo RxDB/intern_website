@@ -1,21 +1,36 @@
 .summary {
   display: flex;
-  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.summaryCards{
+  display: flex;
+  gap:1.5rem;
+}
+
+.summaryHeader{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card {
-  background: white;
+  min-width: 200px;
+  background: var(--bg-dark);
   border-radius: 8px;
   padding: 1rem;
   flex: 1;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow);
+
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
 .label {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: var(--content-grey);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
@@ -25,7 +40,7 @@
 .value {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2563eb;
+  color: var(--content-blue);
 }
 
 .summaryTitle{
@@ -38,6 +53,6 @@
 }
 
 .summaryDescription{
-    color: #4b5563;
-  font-size: 0.875rem;
+    color: var(--content-grey);
+  font-size: 1rem;
 }

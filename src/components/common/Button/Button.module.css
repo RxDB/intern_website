@@ -2,10 +2,10 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 1rem;
+  padding: 1rem 0.8rem;
   border: none;
-  border-radius: 0.8em;
-  font-size: 1.1rem;
+  border-radius: 1rem;
+  font-size: 1rem;
   font-weight: 800;
   cursor: pointer;
   transition: all 0.2s;
@@ -14,11 +14,12 @@
 .primary {
   background-color: #2563eb;
   color: white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--card-shadow);
 }
 
 .primary:hover {
   background-color: #1d4ed8;
+  box-shadow: var(--card-shadow-hover);
 }
 
 .primary:active {
