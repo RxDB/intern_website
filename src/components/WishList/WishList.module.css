@@ -26,15 +26,6 @@
   flex-shrink: 0;
 }
 
-.badge {
-  background-color: #eef2ff;
-  color: #ae2944;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));

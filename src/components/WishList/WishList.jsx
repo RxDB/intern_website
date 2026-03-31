@@ -12,7 +12,6 @@ const WishList = ({ wish = [], handleDelete }) => {
             <h2 className={styles.title}>
                 <img src={heartIcon} alt="" aria-hidden="true" className={styles.titleIcon} />
                 Priority Wishlist</h2>
-            <span className={styles.badge}>{wish.length} items</span>
         </div>
         
         {wish.length === 0 ? (
