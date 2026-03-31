@@ -5,6 +5,7 @@ import Checkbox from '../common/Checkbox/Checkbox'
 import Dropdown from '../common/Dropdown/Dropdown'
 import Button from '../common/Button/Button'
 import styles from './ProductForm.module.css'
+import uploadIcon from '../../icons/file_upload.svg'
 
 
 
@@ -146,7 +147,7 @@ const ProductForm = ({ setProducts }) => {
                                 <img src={form.image} alt="Preview" className={styles.imagePreview} />
                             </div>
                         ) : (
-                            <div className={styles.uploadText}>Click to Upload Image</div>
+                            <div className={styles.uploadText}><img src={uploadIcon} alt="upload" />Click to Upload Image</div>
                         )}
                     </div>
                 </div>
