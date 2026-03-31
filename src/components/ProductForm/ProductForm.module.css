@@ -53,6 +53,9 @@
     appearance: none;
     border: none;
 }
+.currencySelect:focus{
+    outline: none;
+}
 
 .priceLabel{
     color:var(--content-grey);
