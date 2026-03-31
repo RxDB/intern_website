@@ -69,15 +69,18 @@
 }
 
 .wishlistImage{
-  height: 100%;
   width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: var(--input-dark);
 }
 
 .wishlistImage img{
-  object-fit: contain;
+  display: block;
+  object-fit: cover;
   height: 100%;
   width: 100%;
-  border-radius: 1rem;
 }
 
 .stockContainer{

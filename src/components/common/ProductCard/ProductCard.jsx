@@ -5,7 +5,6 @@ const ProductCard = ({
     name,
     price,
     category,
-    region,
     stock,
     image,
     onRemove,
