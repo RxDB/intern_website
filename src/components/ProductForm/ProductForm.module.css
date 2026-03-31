@@ -23,6 +23,9 @@
 
 .fullWidth {
     grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
 }
 
 .buttonGroup {
@@ -79,4 +82,8 @@
     height: 100%;
     object-fit: contain;
     border-radius: 10px;
+}
+
+textarea{
+    resize:none;
 }
