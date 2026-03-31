@@ -132,7 +132,7 @@ const ProductForm = ({ setProducts }) => {
                 </div>
                 <div className={styles.fullWidth}>
                     <label className={styles.imageLabel}>
-                        Product Image
+                        Media
                     </label>
                     <div className={styles.fileInputContainer}>
                         <input
