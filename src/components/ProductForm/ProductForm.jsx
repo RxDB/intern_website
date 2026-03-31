@@ -19,8 +19,8 @@ const ProductForm = ({ setProducts }) => {
         stock: '',
         price: '',
         description: '',
+        currency:"USD",
         category: 'Electronic',
-        currency: '',
         sellType: 'customer',
         region: 'India',
         customizable: false,
@@ -122,14 +122,29 @@ const ProductForm = ({ setProducts }) => {
                     onChange={handleChange}
                     placeholder="0"
                 />
-                <TextInput
+                <div className={styles.priceRow}>
+                    <label htmlFor="price" className={styles.priceLabel}>Price</label>
+                    <div className={styles.priceField}>
+                <input
                     type="number"
                     label="price"
                     name="price"
                     value={form.price}
                     onChange={handleChange}
                     placeholder="0"
+                    className={styles.priceInput}
                 />
+                <select
+                    name="currency"
+                    value={form.currency}
+                    onChange={handleChange}
+                    className={styles.currencySelect}
+                >
+                    <option value="USD">USD</option>
+                    <option value="INR">INR</option>
+                </select>
+                    </div>
+                </div>
                 <div className={styles.fullWidth}>
                     <TextInput
                         type="text"

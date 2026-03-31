@@ -20,6 +20,45 @@
     gap: 1rem;
     align-items: center;
 }
+.priceRow{
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.5rem;
+}
+.priceField{
+    position: relative;
+    width: 100%;
+}
+.priceInput{
+    width: 100%;
+    min-width: 0;
+    border: none;
+    background-color: var(--input-dark);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+.priceInput:focus{
+    outline:none;
+    border:var(--input-border);
+}
+.currencySelect{
+    position: absolute;
+    top:50%;
+    right:0.5rem;
+    transform: translateY(-50%);
+    color: var(--content-grey);
+    background-color: var(--input-dark);
+    appearance: none;
+    border: none;
+}
+
+.priceLabel{
+    color:var(--content-grey);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
 
 .fullWidth {
     grid-column: 1 / -1;
@@ -91,10 +130,6 @@
     line-height: 1;
     cursor: pointer;
 }
-
-/* .removePreviewButton:hover {
-    background: var(--content-grey);
-} */
 
 .fileInput {
     position: absolute;
